@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+        name: pod-service
+spec:
+        ports:
+                - port: 5000
+                  targetPort: 5000
+        selector:
+                name: pod-python
+        type: NodePort
