@@ -1,3 +1,3 @@
 echo " Deploying to cluster "
 
-/usr/local/bin/kubectl apply -f deployment.yaml -f service.yaml
+/usr/local/bin/kubectl create -f deployment.yaml -f service.yaml
