@@ -50,7 +50,7 @@ pipeline {
                     sh 'cat $KUBECRED > ~/.kube/config'
                     echo "Deploying to cluster"
                     sh '/usr/local/bin/kubectl create -f deployment.yaml -f service.yaml'
-                    sleep 10s
+                    sh 'sleep 10'
                 }
             }
         }
