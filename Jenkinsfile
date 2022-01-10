@@ -48,8 +48,8 @@ pipeline {
        steps{
                   withCredentials([kubeconfigFile(credentialsId: 'k8s', variable: 'KUBECRED')]) {
                     sh 'cat $KUBECRED > ~/.kube/config'
-                    sh './deploy.sh'
-                    echo 'ashish'
+                    echo "Deploying to cluster"
+                    sh '/usr/local/bin/kubectl create -f deployment.yaml -f service.yaml'
                 }
             }
         }
