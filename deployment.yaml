@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
       - name: pod-deployment
-        image: 708543810688.dkr.ecr.ap-south-1.amazonaws.com/jenkins-assignment:v1
+        image: ashishsigmoid/jenkins-assignment:v1
