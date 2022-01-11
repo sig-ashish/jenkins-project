@@ -48,13 +48,13 @@ stage('Deploying') {
       steps {
         script {
           kubeconfig(credentialsId: 'k8s_id', serverUrl: 'https://192.168.1.10:8443') {
-            try {
+            
               sh "kubectl create -f deployment.yaml"
               echo "Successfully Deployed."
               sh "kubectl get pods"
               sh "kubectl get deployments"
               
-            }
+           
 }
 }
 }
