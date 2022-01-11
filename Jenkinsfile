@@ -44,16 +44,23 @@ pipeline {
          }
         }
       }
-    stage ('K8S Deploy') {
-       steps{
-                  withCredentials([kubeconfigFile(credentialsId: 'k8s', variable: 'KUBECRED')]) {
-                    sh 'cat $KUBECRED > ~/.kube/config'
-                    echo "Deploying to cluster"
-                    sh '/usr/local/bin/kubectl create -f deployment.yaml -f service.yaml'
-                    sh 'sleep 10'
-                }
+stage('Deploying') {
+      steps {
+        script {
+          kubeconfig(credentialsId: 'k8s_id', serverUrl: 'https://192.168.1.10:8443') {
+            try {
+              sh "kubectl create -f deployment.yaml"
+              echo "Successfully Deployed."
+              sh "kubectl get pods"
+              sh "kubectl get deployments"
+              
             }
-        }
+}
+}
+}
+}
+      
+
         stage('list of images in ECR, pods and deployments in EKS') {
             steps{  
                 script {
