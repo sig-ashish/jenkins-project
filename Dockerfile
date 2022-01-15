@@ -8,4 +8,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 ADD sample.py .
 
-CMD [ "python", "./sample.py" ]
+CMD [ "python", "sample.py" ]
