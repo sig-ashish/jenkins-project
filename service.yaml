@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+        name: pod-service
+spec:
+        type: LoadBalancer
+        selector:
+                name: pod-python
+        ports:
+                - port: 5000
+                  targetPort: 5000

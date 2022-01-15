@@ -14,5 +14,4 @@ spec:
     spec:
       containers:
       - name: pod-deployment
-        imagePullPolicy: Never 
         image: ashishsigmoid/jenkins-assignment:v1
